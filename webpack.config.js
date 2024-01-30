@@ -28,7 +28,9 @@ const clientConfig = {
   watchOptions: {
     ignored: /node_modules/,
   },
-  entry: ['./src/client/apps/AdminApp/client.entry.jsx'],
+  entry: {
+    AdminApp: ['./src/client/apps/AdminApp/client.entry.jsx'],
+  },
   output: {
     path: path.resolve(dirname, 'dist/client'),
     publicPath: `/`,
@@ -57,7 +59,9 @@ const serverConfig = {
   name: 'server',
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   target: 'node',
-  entry: ['./src/client/apps/AdminApp/server.entry.jsx'],
+  entry: {
+    AdminApp: ['./src/client/apps/AdminApp/server.entry.jsx'],
+  },
   stats: 'minimal',
   watchOptions: {
     ignored: /node_modules/,

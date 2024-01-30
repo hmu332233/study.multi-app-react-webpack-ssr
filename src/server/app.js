@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-const render = require(`../../dist/server/main`).default;
+const render = require(`../../dist/server/AdminApp`).default;
 const fileManifest = require(`../../dist/client/manifest.json`);
 
 const app = express();
@@ -29,14 +29,14 @@ app.get('*', (req, res) => {
           ${htmlAttrs}
           ${meta}
           ${link}
-          <link rel="stylesheet" href="${fileManifest['main.css']}" />
+          <link rel="stylesheet" href="${fileManifest['AdminApp.css']}" />
         </head>
         <body>
           <div id="root">${html}</div>
           <script>
 			      window.__INITIAL_DATA__ = ${JSON.stringify(initialData)};
 		      </script>
-          <script src="${fileManifest['main.js']}"></script>
+          <script src="${fileManifest['AdminApp.js']}"></script>
         </body>
       </html>
   `);
