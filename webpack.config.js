@@ -20,7 +20,7 @@ const babelLoaderRule = {
   ],
 };
 
-const clientConfig = {
+const clientConfig = ({ appName, entry }) => ({
   name: 'client',
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   target: 'web',
@@ -28,12 +28,9 @@ const clientConfig = {
   watchOptions: {
     ignored: /node_modules/,
   },
-  entry: {
-    AdminApp: ['./src/client/apps/AdminApp/client.entry.jsx'],
-    ConsoleApp: ['./src/client/apps/ConsoleApp/client.entry.jsx'],
-  },
+  entry,
   output: {
-    path: path.resolve(dirname, 'dist/client'),
+    path: path.resolve(dirname, `dist/${appName}/client`),
     publicPath: `/`,
     filename: '[name].[contenthash].js',
   },
@@ -54,16 +51,13 @@ const clientConfig = {
       output: 'manifest.json',
     }),
   ],
-};
+});
 
-const serverConfig = {
+const serverConfig = ({ appName, entry }) => ({
   name: 'server',
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   target: 'node',
-  entry: {
-    AdminApp: ['./src/client/apps/AdminApp/server.entry.jsx'],
-    ConsoleApp: ['./src/client/apps/ConsoleApp/server.entry.jsx'],
-  },
+  entry,
   stats: 'minimal',
   watchOptions: {
     ignored: /node_modules/,
@@ -73,7 +67,7 @@ const serverConfig = {
     __filename: true,
   },
   output: {
-    path: path.resolve(dirname, 'dist/server'),
+    path: path.resolve(dirname, `dist/${appName}/server`),
     publicPath: `/`,
     filename: '[name].[contenthash].js',
     libraryTarget: 'commonjs2',
@@ -97,7 +91,22 @@ const serverConfig = {
   ],
   externalsPresets: { node: true },
   externals: [nodeExternals()],
-};
+});
 
-const configs = [clientConfig, serverConfig];
+const configs = [
+  clientConfig({
+    appName: 'all',
+    entry: {
+      AdminApp: ['./src/client/apps/AdminApp/client.entry.jsx'],
+      ConsoleApp: ['./src/client/apps/ConsoleApp/client.entry.jsx'],
+    },
+  }),
+  serverConfig({
+    appName: 'all',
+    entry: {
+      AdminApp: ['./src/client/apps/AdminApp/server.entry.jsx'],
+      ConsoleApp: ['./src/client/apps/ConsoleApp/server.entry.jsx'],
+    },
+  }),
+];
 module.exports = configs;
