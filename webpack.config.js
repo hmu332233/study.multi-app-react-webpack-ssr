@@ -30,6 +30,7 @@ const clientConfig = {
   },
   entry: {
     AdminApp: ['./src/client/apps/AdminApp/client.entry.jsx'],
+    ConsoleApp: ['./src/client/apps/ConsoleApp/client.entry.jsx'],
   },
   output: {
     path: path.resolve(dirname, 'dist/client'),
@@ -61,6 +62,7 @@ const serverConfig = {
   target: 'node',
   entry: {
     AdminApp: ['./src/client/apps/AdminApp/server.entry.jsx'],
+    ConsoleApp: ['./src/client/apps/ConsoleApp/server.entry.jsx'],
   },
   stats: 'minimal',
   watchOptions: {
@@ -73,7 +75,7 @@ const serverConfig = {
   output: {
     path: path.resolve(dirname, 'dist/server'),
     publicPath: `/`,
-    filename: '[name].js',
+    filename: '[name].[contenthash].js',
     libraryTarget: 'commonjs2',
   },
   resolve: {
@@ -87,6 +89,10 @@ const serverConfig = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
       ignoreOrder: true,
+    }),
+    new WebpackAssetsManifest({
+      publicPath: `/`,
+      output: 'manifest.json',
     }),
   ],
   externalsPresets: { node: true },
