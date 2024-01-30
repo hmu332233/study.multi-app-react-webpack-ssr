@@ -1,12 +1,14 @@
 const express = require('express');
 const path = require('path');
 
-const clientFileManifest = require(`../../dist/client/manifest.json`);
-const serverFileManifest = require(`../../dist/server/manifest.json`);
+const FILE_BASE_PATH = '../../dist/all';
+
+const clientFileManifest = require(`${FILE_BASE_PATH}/client/manifest.json`);
+const serverFileManifest = require(`${FILE_BASE_PATH}/server/manifest.json`);
 
 const serverRenderMap = Object.entries(serverFileManifest).reduce(
   (map, [key, value]) => {
-    map[key] = require(`../../dist/server/${value}`).default;
+    map[key] = require(`${FILE_BASE_PATH}/server${value}`).default;
     return map;
   },
   {},
@@ -14,7 +16,7 @@ const serverRenderMap = Object.entries(serverFileManifest).reduce(
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '../../dist/client')));
+app.use(express.static(path.join(__dirname, FILE_BASE_PATH, 'client')));
 
 app.get('*', (req, res) => {
   // 테스트를 위해 req.url이 appName이라는 것을 가정하고 작성
