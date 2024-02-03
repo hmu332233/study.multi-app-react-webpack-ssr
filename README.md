@@ -11,6 +11,9 @@
 
 ### branch
 
+이 레포는 아래와 같은 순서로 변경되었습니다.
+
 ```
-1-basic: webpack config 하나 / 분리된 entry로 multi app 구조 가지고 있을때
+1-basic: webpack config 하나 / 분리된 entry로 multi app 구조
+2-multi-webpack-setup: 각 앱별로 webpack config 분리된 구조
 ```
