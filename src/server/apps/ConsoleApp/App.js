@@ -1,9 +1,7 @@
 const path = require('path');
-const express = require('express');
-const router = express.Router();
 
 const APP_NAME = 'ConsoleApp';
-const FILE_BASE_PATH = '../../../dist/ConsoleApp';
+const FILE_BASE_PATH = '../../../../dist/ConsoleApp';
 
 const clientFileManifest = require(
   path.join(__dirname, FILE_BASE_PATH, 'client', 'manifest.json'),
@@ -63,9 +61,4 @@ const renderApp = (req, res) => {
   `);
 };
 
-router.get('/console', renderApp);
-
-module.exports = {
-  router,
-  static: express.static(path.join(__dirname, FILE_BASE_PATH, 'client')),
-};
+module.exports = { renderApp };
