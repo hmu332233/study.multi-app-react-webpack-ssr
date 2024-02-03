@@ -93,20 +93,4 @@ const serverConfig = ({ appName, entry }) => ({
   externals: [nodeExternals()],
 });
 
-const configs = [
-  clientConfig({
-    appName: 'all',
-    entry: {
-      AdminApp: ['./src/client/apps/AdminApp/client.entry.jsx'],
-      ConsoleApp: ['./src/client/apps/ConsoleApp/client.entry.jsx'],
-    },
-  }),
-  serverConfig({
-    appName: 'all',
-    entry: {
-      AdminApp: ['./src/client/apps/AdminApp/server.entry.jsx'],
-      ConsoleApp: ['./src/client/apps/ConsoleApp/server.entry.jsx'],
-    },
-  }),
-];
-module.exports = configs;
+module.exports = { clientConfig, serverConfig };
