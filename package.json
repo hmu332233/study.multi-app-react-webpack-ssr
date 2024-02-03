@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "NODE_ENV=development webpack --config webpack.config.js",
     "start": "node src/server/app.js",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build:adminApp": "NODE_ENV=development webpack --config src/client/apps/AdminApp/webpack.config.js",
+    "build:consoleApp": "NODE_ENV=development webpack --config src/client/apps/consoleApp/webpack.config.js"
   },
   "keywords": [],
   "author": "",
