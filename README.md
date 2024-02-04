@@ -17,4 +17,5 @@
 ```
 1-basic: webpack config 하나 / 분리된 entry로 multi app 구조
 2-multi-webpack-setup: 각 앱별로 webpack config 분리된 구조
+3-monorepo-setup: 각 앱별로 모노레포 구조 적용
 ```
