@@ -1,0 +1,11 @@
+{
+  "name": "client.console",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:dev": "NODE_ENV=development webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
