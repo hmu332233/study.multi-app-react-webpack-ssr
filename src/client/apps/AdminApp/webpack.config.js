@@ -4,13 +4,13 @@ const configs = [
   clientConfig({
     appName: 'AdminApp',
     entry: {
-      AdminApp: ['./src/client/apps/AdminApp/client.entry.jsx'],
+      AdminApp: ['./client.entry.jsx'],
     },
   }),
   serverConfig({
     appName: 'AdminApp',
     entry: {
-      AdminApp: ['./src/client/apps/AdminApp/server.entry.jsx'],
+      AdminApp: ['./server.entry.jsx'],
     },
   }),
 ];

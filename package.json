@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node src/server/app.js",
     "prepare": "husky",
-    "build:adminApp": "NODE_ENV=development webpack --config src/client/apps/AdminApp/webpack.config.js",
-    "build:consoleApp": "NODE_ENV=development webpack --config src/client/apps/consoleApp/webpack.config.js"
+    "build:dev": "pnpm run --parallel build:dev"
   },
   "keywords": [],
   "author": "",
