@@ -19,4 +19,5 @@
 1-basic: webpack config 하나 / 분리된 entry로 multi app 구조
 2-multi-webpack-setup: 각 앱별로 webpack config 분리된 구조
 3-monorepo-setup: 각 앱별로 모노레포 구조 적용
+4-turbo-setup : 모노레포 구조에 turborepo 적용 / 패키지 외부 디렉토리 의존성 처리
 ```
