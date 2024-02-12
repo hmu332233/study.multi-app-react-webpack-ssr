@@ -6,9 +6,11 @@ const AdminApp = require('./App');
 
 const FILE_BASE_PATH = '../../../../dist/AdminApp';
 
-router.get('/admin', AdminApp.renderApp);
+// 빌드된 static 파일 서빙
+router.use(express.static(path.join(__dirname, FILE_BASE_PATH, 'client'))),
+  // route
+  router.get('/admin', AdminApp.renderApp);
 
 module.exports = {
   router,
-  static: express.static(path.join(__dirname, FILE_BASE_PATH, 'client')),
 };

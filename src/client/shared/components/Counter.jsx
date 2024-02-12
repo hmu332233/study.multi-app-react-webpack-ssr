@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Counter() {
-  const [count, setCount] = React.useState(5);
+  const [count, setCount] = React.useState(0);
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
 
