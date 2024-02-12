@@ -1,0 +1,9 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build:dev": {
+      "inputs": ["$TURBO_DEFAULT$", "../../shared/**"],
+      "outputs": ["dist/**"]
+    }
+  }
+}
