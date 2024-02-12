@@ -4,13 +4,13 @@ const configs = [
   clientConfig({
     appName: 'ConsoleApp',
     entry: {
-      ConsoleApp: ['./client.entry.jsx'],
+      ConsoleApp: ['./entry.client.jsx'],
     },
   }),
   serverConfig({
     appName: 'ConsoleApp',
     entry: {
-      ConsoleApp: ['./server.entry.jsx'],
+      ConsoleApp: ['./entry.server.jsx'],
     },
   }),
 ];
