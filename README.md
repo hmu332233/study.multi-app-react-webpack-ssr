@@ -9,7 +9,12 @@
 - [ ] 모노레포 구조에 앱 통합 HMR 적용
 - [ ] (번외) 특정 앱에 대해서 다른 번들러 또는 nextjs 적용
 - [ ] (번외) pnpm workspace -> npm workspace로 변경
-- [ ] (번외) turbo remote cache 테스트 (커스텀 서버)
+- [x] (번외) turbo remote cache 테스트 (커스텀 서버)
+
+```bash
+$ NODE_ENV=production STORAGE_PROVIDER=local PORT=3005 TURBO_TOKEN=[토큰] npx turborepo-remote-cache
+$ pnpm build:turbo --token=[토큰]
+```
 
 ### branch
 
